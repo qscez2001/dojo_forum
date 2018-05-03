@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180503065355) do
     t.string "name", default: "", null: false
     t.string "avatar"
     t.text "intro"
-    t.string "role", default: "Normal"
+    t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

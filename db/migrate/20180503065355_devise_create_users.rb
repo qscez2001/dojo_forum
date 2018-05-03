@@ -25,7 +25,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.index :name, unique: true
       t.string :avatar
       t.text :intro
-      t.string :role, default: "Normal"
+      t.string :role
 
       ## Confirmable
       # t.string   :confirmation_token
