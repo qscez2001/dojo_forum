@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root :to => 'posts#index'
 
   namespace :admin do
-    resources :users, only: [:index]
-    resources :categories, only: [:index, :create, :edit, :destroy]
+    resources :users, only: [:index, :update]
+    resources :categories, only: [:index, :create, :edit, :update, :destroy]
     root :to => 'users#index'
   end
 end

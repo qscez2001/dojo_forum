@@ -1,6 +1,7 @@
 # Default admin
+# User.destroy_all
 
-User.create(email: "admin@example.com", password: "12345678", role: "admin", name: "root")
+User.create(email: "admin@example.com", password: "12345678", role: "Admin", name: "root")
 puts "Default admin created!"
 
 # Default user
