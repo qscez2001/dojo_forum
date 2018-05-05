@@ -1,4 +1,5 @@
 class Admin::CategoriesController < Admin::BaseController
+  
   def index
     @categories = Category.all
     @category = Category.new
@@ -6,7 +7,6 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     @category = Category.create(category_params)
-
     redirect_to admin_categories_path
   end
 
