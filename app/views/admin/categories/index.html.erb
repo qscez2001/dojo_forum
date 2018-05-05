@@ -1,1 +1,16 @@
 <h1>分類後台</h1>
+
+<%= form_for [:admin, @category] do |f|%>
+  <%= f.text_field :name %>
+  <%= f.submit "new" %>
+<% end %>
+
+<% @categories.each do |category|%>
+  <p>
+    <%= category.name%>
+
+    <%= link_to "edit", admin_category_path(category) %>
+   
+    <%= link_to "刪除", admin_category_path(category), method: :delete%>
+  </p>
+<% end %>
