@@ -1,0 +1,41 @@
+<%= form_for [@post] do |f| %>
+  <div class="form-group">  
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">  
+    <%= f.label :content, "content" %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image, "Photo" %>
+    <%= image_tag @post.image, width: '300px' if @post.image? %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">   
+    <%= f.label :authority %><br />
+    <%= f.radio_button :authority, 1 %>
+    <%= f.label :authority, "All", :value => "All"  %>
+    <%= f.radio_button :authority, 2 %>
+    <%= f.label :authority, "Friend", :value => "Friend"  %>
+    <%= f.radio_button :authority, 3 %>
+    <%= f.label :authority, "Myself", :value => "Myself"  %>
+  </div>
+
+  <div class="form-group">  
+    <%= f.label :category %><br />
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name ) %>   
+  </div>
+
+  <div class="form-group"><br />
+    <%= f.label :status, "status" %><br />
+    <%= f.submit "Save Draft", name: "draft", class: "btn btn-primary right" %>
+    <%= f.submit "Submit", name: "submit", class: "btn btn-primary right" %>
+  </div>
+
+  <br>
+  <br>
+<% end %>
