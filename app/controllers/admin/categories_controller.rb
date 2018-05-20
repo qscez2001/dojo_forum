@@ -22,7 +22,11 @@ class Admin::CategoriesController < Admin::BaseController
 
   def destroy
     @category = Category.find(params[:id])
-    @category.destroy
+    if @category.posts.present?
+      flash[:alert] = "The category has been used"
+    else
+      @category.destroy
+    end
     redirect_to admin_categories_path
   end
 
